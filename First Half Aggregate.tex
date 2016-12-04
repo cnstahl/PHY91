@@ -1,0 +1,1392 @@
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsmath, mathtools}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{bbold}
+
+\renewcommand{\thesubsection}{\alph{subsection})}
+\preto{\section}{\setcounter{subsection}{0}}
+\newcommand{\hilb}{\mathfrak{H}}
+\newcommand{\minus}[1]{\bar{#1}}
+
+
+\title{PHY 91: Massive, Aggregate Problem Set}
+\author{Calvin Chen, Bendeguz Offertaler, Charles Stahl}
+\date{November 12th, 2016}
+\begin{document}
+\maketitle
+\section*{October 10th}
+\begin{enumerate}
+    \item[] \textbf{G\&Y: 3.8}
+    
+\begin{enumerate}[(a)]
+    \item 
+
+
+Since $m_{max} = m_{1,max} + m_{2,max} + m_{3,max} = 3, \hspace{1mm} J_{max} = 3$.
+
+\begin{align}
+\hilb_1\otimes\hilb_1\otimes\hilb_1 &= \hilb_1 \otimes\left(\hilb_0\oplus
+    \hilb_1 \oplus\hilb_2\right)\\
+&= (\hilb_1\otimes\hilb_0)\oplus(\hilb_1\otimes\hilb_1)\oplus 
+    (\hilb_1\otimes\hilb_2)\\
+&= (\hilb_1)\oplus(\hilb_0\oplus\hilb_1\oplus_2) \oplus
+    (\hilb_1\oplus\hilb_2\oplus\hilb_3)
+\end{align}
+Remembering that the degeneracy $deg(\hilb_J) = 2J+1$, we have
+\begin{align}
+&J = 0, \hspace{2mm}d_0 = 1*1 = 1\\
+&J = 1, \hspace{2mm}d_1 = 3*3 = 9\\
+&J = 2, \hspace{2mm}d_2 = 5*2 = 10\\
+&J = 3, \hspace{2mm}d_3 = 7*1 = 7
+\end{align}
+As expected, $\sum_J d_J = 27 = 3*3*3$.
+
+\item 
+Using the hint, we note that the only scalar formed from three vectors is
+\begin{align}
+(\boldsymbol{a}\times\boldsymbol{b})\cdot\boldsymbol{c} &= 
+    (\boldsymbol{a}\times\boldsymbol{b})_i c_i\\
+&= \epsilon^{ijk}a_j b_k c_i\\
+&= \epsilon^{ijk}a_i b_j c_k.
+\end{align}
+Using this fact, the knowledge that $\boldsymbol{J}$ is a vector operator, the only possible combination that results in $J=0$ (a scalar) would have the same symmetry properties, i.e. symmetry under permutation and antisymmetry under any swap. Therefore, 
+\begin{align}
+    \ket{J=0, m=0}=\boxed{\ket{01\bar{1}}+\ket{1\bar{1}0}+\ket{\bar{1}01}-
+    \ket{0\bar{1}1}-\ket{\bar{1}10}-\ket{10\bar{1}}}.
+\end{align}
+
+For the state $J=0$, we need
+\begin{multline}
+        \ket{j=0,m=0}=\frac{1}{\sqrt{2}}\left(\ket{j_{1+2}=1,m_{1+2}=-1}\otimes \ket{j_3=1,m_3=1}\right.\\\left.-\ket{j_{1+2}=1,m_{1+2}=1}\otimes \ket{j_3=1,m_3=-1}\right)
+\end{multline}
+but, in turn, we have expressions for the two $j_{1+2}$ states:
+\begin{multline}
+        \ket{j_{1+2}=1,m_{1+2}=1}=\frac{1}{\sqrt{2}}\left(\ket{j_1=1,m_1=0}\otimes\ket{j_2=1,m_1=1}\right.\\\left.-\ket{j_1=1,m_1=1}\otimes\ket{j_2=1,m_2=0}\right)
+\end{multline}
+and 
+\begin{multline}
+        \ket{j_{1+2}=1,m_{1+2}=-1}=\frac{1}{\sqrt{2}}\left(\ket{j_1=1,m_1=0}\otimes\ket{j_2=1,m_2=-1}\right.\\\left.-\ket{j_1=1,m_1=-1}\otimes\ket{j_2=1,m_2=0}\right)
+\end{multline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{enumerate}
+    \item[] \textbf{G\&Y: 3.9}
+    
+\begin{align}
+H = -\vec{\mu}\cdot\vec{B}, \hspace{2mm} \vec{\mu}=g\vec{s}
+\end{align}
+\begin{align}
+\frac{d}{dt}s_i &= \frac{i}{\hbar}[s_i, \mu_j B_j]= \frac{i}{\hbar}[s_i,s_j]gB_j\\ &= \frac{i}{\hbar}i\epsilon^{ijk}s_k B_j g = -\frac{g}{\hbar}(\vec{B}\times
+    \vec{s})_i\\
+&= \frac{g}{\hbar}(\vec{s}\times\vec{B})_i.
+\end{align}
+Therefore the component of $\vec{s}$ parallel to $\vec{B}$ doesn't change, and the other two precess with $\omega = -\frac{gB}{\hbar}$, meaning
+\begin{align}
+\theta = -\frac{gBt}{\hbar},
+\end{align}
+and an angle of $2\pi$ is reached at time $t=2\pi\hbar/gB$. For the experimental setup, since the fields are anti-parallel, we want to rotate the state through $\pi$ radians. If this is done correctly, There will be destructive interference in the center for half-integer spins, and constructive interference in the center for integer spins. For the neutron to rotate $2\pi$, 
+\begin{align}
+\theta&=2\pi=-\frac{g_nBt}{\hbar}\\
+t&=-\frac{2\pi\hbar}{g_nB}.
+\end{align}
+Assuming the neutrons are moving classically, 
+\begin{align}
+\frac{1}{2}mv^2 &= \frac{3}{2}kT,\\
+v &= \sqrt{\frac{3kT}{m}},\\
+l &= \frac{-2\pi\hbar}{g_nB}\sqrt{\frac{m}{3kT}}\\
+&= \frac{-2\pi(1.05\cdot10^{-34}Js)}{.1T(-9.66\cdot10^{-27} 
+    JT^{-1})}\sqrt{\frac{1.68 \cdot 10^{-27} kg}{3\cdot1.38
+    \cdot10^{-23}\cdot10J}}\\
+&= \boxed{4.37\cdot10^{-9}\text{m}}\hspace{.5mm}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item[] \textbf{S: 3.15}
+    
+$J_{\pm}=J_x\pm iJ_y.$
+\begin{enumerate}[(a)]
+\item 
+\begin{align}
+J^2 &= J_x^2+J_y^2+J_z^2 = J_z^2+J_xJ_x-iJ_xJ_y+iJ_xJ_y+J_yJ_y\\
+&= J_z^2 +(Jx+iJ_y)(J_x-iJ_y)+i[J_x,J_y] = \boxed{J_z^2 + J_+J_-+J_z}
+\end{align}
+
+\item 
+Using the fact that $J_-^\dag = J_+$,
+\begin{align}
+|c_-|^2 &= c_-^\ast c_- = \bra{j,m-1} c_-^\ast c_-\ket{j,m-1} = 
+    \bra{jm}J_+J_-\ket{jm} \\ 
+&= \bra{jm}J^2 - J_x^2 + J_z\ket{jm} = j(j+1) - m(m-1)\\
+&\implies \boxed{c_- = \sqrt{j(j+1) - m(m-1)}}.
+\end{align}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 3.24}
+    
+Start with the $j=2$ states:
+\begin{align}
+\ket{22} &= \ket{++}\\
+c_-\ket{21} &= J_{-,1}\ket{++} + J_{-,2}\ket{++}\\
+\ket{21} &= \frac{\sqrt{2-0}}{\sqrt{6-2}}(\ket{+0} + \ket{0+})\\
+&= \frac{1}{\sqrt{2}}(\ket{+0} + \ket{0+})\\
+c_-\ket{20} &= \frac{\sqrt{2-0}}{\sqrt{6-0}}\frac{1}{\sqrt{2}}(\ket{+-}+\ket{-+}+
+    \ket{00}+\ket{00})\\
+\ket{20}&= \frac{1}{\sqrt{6}}(\ket{+-}+\ket{-+}) + \sqrt{\frac{2}{3}}\ket{00}.
+\end{align}
+Restarting from the bottom,
+\begin{align}
+\ket{2,-2} &= \ket{--}\\
+\ket{2,-1} &= \frac{\sqrt{2-0}}{\sqrt{6-2}}(\ket{-0} + \ket{0-})\\
+&= \frac{1}{\sqrt{2}}(\ket{+0} + \ket{0+}).
+\end{align}
+We now know that $\ket{11}$ is orthogonal to $\ket{21}$ and made of states with $m=1$. This means
+\begin{align}
+\ket{11} &= \frac{1}{\sqrt{2}}(\ket{+0}-\ket{0+})\\
+\ket{10} &= \frac{\sqrt{2-0}}{\sqrt{2-0}}\frac{1}{\sqrt{2}}
+    (\ket{+-}+\ket{00}-\ket{00}-\ket{-+})\\
+&= \frac{1}{\sqrt{2}}(\ket{+-}-\ket{-+})\\
+\ket{1,-1} &= \frac{1}{\sqrt{2}}(\ket{0-}-\ket{-0}).
+\end{align}
+Although there are three basis states for $m=0$, $\ket{00}$ has to be orthogonal to both $\ket{20}$ and $\ket{10}$. From $\ket{10}$, it must be symmetric in $\ket{+-}$ and $\ket{-+}$, so
+\begin{align}
+\ket{00} &= a(\ket{+-}+\ket{-+}) + b\ket{00}\\
+\bra{20}\ket{00} &= \frac{1}{\sqrt{6}}a\cdot2+\sqrt{\frac{2}{3}}b = 
+    \sqrt{\frac{2}{3}}a+\sqrt{\frac{2}{3}}b=0\\
+\ket{00} &= \frac{1}{\sqrt{3}}(\ket{+-}+\ket{-+}) - \frac{1}{\sqrt{3}}\ket{00}
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 5.1}
+    \begin{enumerate}
+\item 
+\begin{align}
+    \Delta_0^{(1)}&=\braket{n^{(0)}|\lambda H_1|n^{0}}\\&=b\braket{n^{(0)}|x|n^{0}}
+\end{align}
+Using the result
+\begin{equation}
+    \braket{n^{(0)}|x|m^{(0)}}=\sqrt{\frac{\hbar}{2m\omega}}\sqrt{m+1}\delta_{n,m+1}+\sqrt{m}\delta_{n,m-1}
+\end{equation}
+we see that $\Delta_0^{(1)}=0$. The second order expression for $\Delta_{0}$ is given by
+\begin{align}
+    \Delta_0^{(2)}&=b^2\sum_{k\neq 0}\frac{|\braket{0|x|k}|^2}{E_0^{(0)}-E_k^{(0)}}\\&=\frac{\hbar b^2}{2m\omega}\frac{\sqrt{1}}{E_0^{(0)}-E_1^{(0)}}\\&=\boxed{-\frac{b^2}{2m\omega^2}}
+\end{align}
+\item 
+The Hamiltonian is given by
+\begin{align}
+    H&=\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}+bx\\&=\frac{p^2}{2m}+\frac{m\omega^2}{2}\left(x+\frac{b}{m\omega^2}\right)^2-\frac{b^2}{2m\omega^2}
+\end{align}
+If we define the operator $y=x+\frac{b}{m\omega^2}$, it is clear that $[y,p]=i\hbar$, so that the energy levels for the harmonic oscillator are given by
+\begin{equation}
+    E_n=\hbar\omega\left(n+\frac{1}{2}\right)-\frac{b^2}{2m\omega^2}
+\end{equation}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 5.4}
+    \begin{enumerate}
+\item 
+\begin{align}
+    H_0&=H_x+H_y\\&=\left(\frac{p_x^2}{2m}+\frac{m\omega^2x^2}{2}\right)+\left(\frac{p_y^2}{2m}+\frac{m\omega^2y^2}{2}\right)
+\end{align}
+It is clear that the energy eigenstates are given by
+\begin{equation}
+    E_{n,m}=\hbar\omega\left(1+n+m\right)
+\end{equation}
+The energies of the three lowest-lying sates are $E_{0,0}=\hbar \omega$, $E_{1,0}=E_{0,1}=2\hbar\omega$. There are indeed degeneracies for this Hamiltonian.
+
+\item 
+Let 
+\begin{equation}
+        V=\delta m \omega^2 xy
+\end{equation}
+
+The lowest energy state is non-degenerate. Therefore, the $0th$ order eigenstate corresponding to the ground state is given by
+\begin{align}
+        \ket{n=0,m=0;\lambda^0}&=\ket{0;x}\otimes \ket{0;y}\\&=\int dx dy dz \ket{x,y,z}\left(\frac{\alpha}{\hbar}\right)^{\frac{1}{2}}e^{-\frac{\alpha x^2}{2}}e^{-\frac{\alpha y^2}{2}},\hspace{0.5cm}\alpha=\frac{m\omega}{\hbar}
+\end{align}
+and 
+\begin{align}
+        \Delta(n=0,m=0;\lambda^0)&=\braket{n=0,m=0;\lambda^0|V|n=0,m=0;\lambda^0}\\&=\delta m \omega^2 \left(\bra{0;x}\otimes \bra{0;y}\right)xy\left(\ket{0;x}\otimes \ket{0;y}\right)\\&=\delta m \omega^2 \braket{0;x|x|0;x}\braket{0;y|y|0;y}
+\end{align}
+But we note that the ground-state for the simple harmonic oscillator is invariant under parity inversion, so the expectation values for $x$ and $y$ are $0$. Thus
+\begin{equation}
+        \Delta(n=0,m=0;\lambda^1)=0
+\end{equation}
+
+Next, we consider the degenerate eigenstates. Let
+\begin{equation}
+        \ket{1}=\ket{n=1,m=0;\lambda^0}=\ket{1;x}\otimes\ket{0;y} 
+\end{equation}
+and 
+\begin{equation}
+        \ket{2}=\ket{n=0,m=1;\lambda^0}=\ket{0;x}\otimes\ket{1;y} 
+\end{equation}
+Then:
+\begin{equation}
+        \braket{1|V|1}=\delta m\omega^2 \braket{1;x|x|1;x}\braket{0;y|y|0;y}=0
+\end{equation}
+\begin{equation}
+        \braket{2|V|2}=\delta m\omega^2 \braket{0;x|x|1;0}\braket{1;y|y|1;y}=0
+\end{equation}
+\begin{equation}
+        \braket{1|V|2}=\delta m\omega^2 \braket{1;x|x|0;x}\braket{0;y|y|1;y}=\left(\delta m \omega^2\right)\left( \frac{\hbar }{2m\omega}\right)=\frac{\delta \hbar \omega}{2} 
+\end{equation}
+and 
+\begin{equation}
+        \braket{2|V|1}=\delta m\omega^2 \braket{0;x|x|1;x}\braket{1;y|y|0;y}=\frac{\delta \hbar \omega}{2}
+\end{equation}
+
+Thus, we want to diagonalize the matrix 
+\begin{equation}
+        V'=\frac{\delta \hbar \omega}{2}\sigma_x\implies E_{\pm}=\delta\frac{\hbar \omega}{2},\chi_{\pm}=\frac{1}{\sqrt{2}}\left(\begin{array}{c}1\\\pm 1\end{array}\right)
+\end{equation}
+
+Therefore, the $0th$ order energy eigenstates for the perturbed Hamiltonian in the degenerate subspace are
+\begin{equation}
+        \ket{1;D;\lambda^0}=\frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)=\frac{1}{\sqrt{2}}\left(\ket{1;x}\otimes \ket{0;y}+\ket{0;x}\otimes \ket{1;y}\right)
+\end{equation}
+and 
+\begin{equation}
+        \ket{2;D;\lambda^0}=\frac{1}{\sqrt{2}}\left(\ket{1}-\ket{2}\right)=\frac{1}{\sqrt{2}}\left(\ket{1;x}\otimes \ket{0;y}-\ket{0;x}\otimes \ket{1;y}\right)
+\end{equation}
+The corresponding first order corrections to the energies are
+\begin{equation}
+        \Delta(1;D;\lambda^1)=\delta \frac{\hbar \omega}{2}
+\end{equation}
+and 
+\begin{equation}
+        \Delta(2;D;\lambda^1)=-\delta \frac{\hbar \omega}{2}
+\end{equation}
+\item 
+Transform into new coordinates
+\begin{align}
+u=\frac{x+y}{\sqrt{2}},\hspace{2mm} v=\frac{x-y}{\sqrt{2}}.
+\end{align}
+Then, the Hamiltonian is given by
+\begin{align}
+H&=\frac{p_x^2+p_y^2}{2m}+\frac{m\omega^2}{2}(x^2+y^2)+\delta m\omega^2xy\\
+&= \frac{p_u^2+p_v^2}{2m} + \frac{m\omega^2}{2} (u^2+v^2) + \delta m\omega^2
+    \frac{u^2-v^2}{2}\\
+&= \frac{p_u^2+p_v^2}{2m} + \frac{m\omega^2}{2} \left((1 + \delta)u^2
+    +(1-\delta)v^2\right).
+\end{align}
+This is the Hamiltonian for an anisotropic harmonic oscillator with 
+\begin{align}
+\omega_u^2&=(1 + \delta)\omega^2\\
+\omega_v^2&=(1 - \delta)\omega^2.
+\end{align}
+Eigenstates are then of the form $\ket{n_un_v}$, with energies 
+\begin{align}
+E_{n_un_v} &= \hbar\omega\left(n_u\sqrt{1 + \delta}+ 
+    n_v\sqrt{1 - \delta} +1\right).
+\end{align}
+This agrees with perturbation theory to first order.
+\end{enumerate}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+     
+\item[] \textbf{S: 5.11}
+\begin{align}
+    \mathcal{H} = \begin{bmatrix}
+        E_1^0 & \lambda\Delta\\
+        \lambda\Delta & E_2^0
+    \end{bmatrix}
+\end{align}
+\begin{enumerate}
+\item 
+\begin{align}
+    det(\mathcal{H}-\mu\mathbb{1}) &= \begin{vmatrix}
+        E_1^0-\mu & \lambda\Delta\\
+        \lambda\Delta & E_2^0-\mu
+    \end{vmatrix}\\
+    &= (E_1^0-\mu)(E_2^0-\mu) -(\lambda\Delta)^2\\
+    &= \mu^2 -(E_1^0+E_2^0)\mu +E_1^0E_2^0-\lambda\Delta^2\\
+    \implies \Aboxed{\mu =E'&= \frac{E_1^0+E_2^0}{2}\pm \frac{\sqrt{(E_1^0-
+    E_2^0)^2-(2\lambda\Delta)^2}}{2}}\hspace{.5mm}.
+\end{align}
+The vectors are then given by
+\begin{align}
+    \ket{1} &= \begin{bmatrix}
+        \frac{E_2-E_1}{2}- \frac{\sqrt{(E_1^0-E_2^0)^2-(2\lambda\Delta)^2}}{2}\\
+        \lambda\Delta
+    \end{bmatrix},\\
+    \ket{2} &= \begin{bmatrix}
+        \frac{E_1-E_2}{2}- \frac{\sqrt{(E_1^0-E_2^0)^2-(2\lambda\Delta)^2}}{2}\\
+        \lambda\Delta
+    \end{bmatrix},
+\end{align}
+up to an overall factor.
+\item
+Using perturbation theory,
+\begin{align}
+E_1^{(2)} &= E_1^0 + \lambda\braket{\psi_1^0|H'|\psi_1^0} + \lambda^2
+    \frac{|\braket{\psi_1^0|H'|\psi_2^0}|^2}{E_1^0-E_2^0}\\
+&= \boxed{E_1^0 + \lambda^2\frac{\Delta^2}{E_1^0-E_2^0}}\\
+E_2^{(2)} &= \boxed{E_2^0 + \lambda^2\frac{\Delta^2}{E_2^0-E_1^0}}
+    \hspace{.5mm}.
+\end{align}
+As expected, this is the second order approximation to $\mu$ above. The states are also approximations to the above.
+\begin{align}
+\ket{1} &= \ket{1^0} + \lambda\frac{\Delta}{E_1^0-E_2^0}\ket{2^0}\\
+&= \begin{bmatrix}
+    1\\ \frac{\lambda\Delta}{E_1^0-E_2^0}\end{bmatrix}, \\
+\ket{2} &= \begin{bmatrix}
+    \frac{\lambda\Delta}{E_2^0-E_1^0}\\1\end{bmatrix}. \\
+\end{align}
+\item
+Assuming $E_1^0=E_2^0$ and using degenerate perturbation theory,
+\begin{align}
+H_{eff} &= \lambda\begin{bmatrix}0&\Delta\\ \Delta&0\end{bmatrix} + 0\\
+\implies E'^2 &= (\lambda\Delta)^2\\
+\implies E &= E_1^0 \pm \lambda\Delta.
+\end{align}
+The eigenstates are just
+\begin{align}
+\ket{1} &= \frac{1}{\sqrt{2}}\begin{bmatrix}1\\-1\end{bmatrix}\\
+\ket{2} &= \frac{1}{\sqrt{2}}\begin{bmatrix}1\\1\end{bmatrix}
+\end{align}
+
+\end{enumerate}    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 5.12}
+    
+We have
+\begin{equation}
+    H=\left(\begin{array}{ccc}E_1&0&0\\0&E_1&0\\0&0&E_2\end{array}\right)+\left(\begin{array}{ccc}0&0&a\\0&0&b\\a^*&b^*&0\end{array}\right)
+\end{equation}
+Thus, the unperturbed eigenstates are 
+\begin{equation}
+        \psi_{1}=\left(\begin{array}{c}1\\0\\0\end{array}\right),\psi_2=\left(\begin{array}{c}0\\1\\0\end{array}\right),\psi_3=\left(\begin{array}{c}0\\0\\1\end{array}\right)
+\end{equation}
+the first two of which are degenerate. 
+
+Because the perturbation's diagonal elements are $0$, the first order correction to the energy eigenvalues is $0$. Now, the second order non-degenerate approximation to the perturbed eigenvalues is given by
+\begin{align}
+        E_a&=E_\alpha+\sum_{\beta\neq \alpha}\frac{|\braket{\alpha|H_1|\beta}|^2}{E_\alpha-E_\beta}
+\end{align}
+Thus, for $E_{1,1}$ we have
+\begin{equation}
+        E_{1,1}=E_1+\frac{0}{E_1-E_1}+\frac{|a|^2}{E_1-E_2}=E_1+\frac{|a|^2}{E_1-E_2}
+\end{equation}
+For $E_{1,2}$ we have
+\begin{equation}
+        E_{1,2}=E_1+\frac{|b|^2}{E_1-E_2}
+\end{equation}
+and for $E_{2}$ we have
+\begin{equation}
+        E_2=E_2+\frac{|a|^2+|b|^2}{E_2-E_1}
+\end{equation}
+
+Next, Sakurai asks us to diagonalize $H$ to find the exact eigenvalues:
+
+\begin{equation}
+        \left|\begin{array}{ccc}E_1-\lambda &0&a\\0&E_1-\lambda&b\\a^*&b^*&E_2-\lambda\end{array}\right|=(E_1-\lambda)((E_1-\lambda)(E_2-\lambda)-|a|^2-|b|^2)=0
+\end{equation}
+So we conclude that the eigenvalues are given by
+\begin{equation}
+        \lambda=E_1,\lambda=\frac{E_1+E_2\pm \sqrt{(E_1-E_2)^2+4|a|^2+4|b|^2}}{2}
+\end{equation}
+
+Expanding the latter two as a taylor series, we have
+\begin{align}
+        \lambda_{2,3}&=\frac{(E_1+E_2)\pm \left((E_1-E_2)+\frac{2|a|^2+2|b|^2}{E_1-E_2}\right)}{2}\\&=E_1+\frac{|a|^2+|b|^2}{E_1-E_2},E_2+\frac{|a|^2+|b|^2}{E_2-E_1}
+\end{align}
+
+Finally, we use the second order degenerate perturbation theory. We simply need to find the eigenvalues for the effective Hamiltonian given by
+\begin{equation}
+        H_{eff}=\left(\begin{array}{cc}0&0\\0&0\end{array}\right)+\frac{1}{E_1-E_2}\left(\begin{array}{cc}|a|^2&ab^*\\ba^*&|b|^2\end{array}\right)
+\end{equation}
+
+Define $\mu=(E_1-E_2)\lambda$. Then, if $\lambda$ are the eigenvalues of $H_{eff}$, $\mu$ satisfies the equation
+\begin{equation}
+        \left|\begin{array}{cc}|a|^2-\mu&ab^*\\ba^*&|b|^2-\mu\end{array}\right|=\mu^2-(|a|^2+|b|^2)\mu+|a|^2|b|^2-|a|^2|b|^2=0
+\end{equation}
+
+Thus,
+\begin{equation}
+        \mu=0, |a|^2+|b|^2
+\end{equation}
+
+Therefore, the perturbed eigenvalues to second order are
+\begin{equation}
+        E_{1,1}=E_1,E_{1,2}=E_1+\frac{|a|^2+|b|^2}{E_1-E_2}
+\end{equation}
+We notice that the second order perturbation for $E_2$ is correctly given by the non-degenerate theory, but that the corrections for $E_{1,1}$ and $E_{1,2}$ are wrong. However, the second order degenerate perturbation theory does the job.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+    
+\item[] \textbf{S: 5.16}
+\begin{enumerate}
+\item 
+For $s$ states, $l=0$. Using the radial Shr\"{o}dinger equation,
+\begin{align}
+\frac{d^2 u(r)}{dr^2} = \frac{2m(E-V)}{\hbar^2}u(r).
+\end{align}
+I'm sure there is some integration by parts that can be done that gives the equation in the book but we couldn't find it.
+\item
+For the hydrogen atom,
+\begin{align}
+V(r) &= -\frac{e^2}{4\pi}\frac{1}{r}\\
+V'(r) &= \frac{e^2}{4\pi r^2}\\
+\psi_{100} &= Y_{00}R_{10}\\
+&= \sqrt{\frac{1}{4\pi}}\cdot 2a^{-3/2}e^{-r/a}\\
+|\psi_{100}|^2 &= \frac{1}{4\pi}\cdot 4a^{-3}e^{2r/a}\\
+|\psi(0)|^2 &= \boxed{\frac{a^{-3}}{\pi}}\\
+\frac{m}{2\pi\hbar^2}\braket{V'(r)} &= \frac{1}{2e^2a}\int d\Omega\int_0^\infty 
+V'(r)|\psi(r)|^2r^2dr\\
+&= \frac{1}{2e^2a}\frac{e^2}{4\pi}\cdot 4\pi \frac{a^{-3}}{\pi}
+\int_0^\infty e^{-2r/a}dr\\
+&= \frac{a^{-4}}{2\pi}2a\\
+&= \boxed{\frac{a^{-3}}{\pi}}\hspace{.5mm}.
+\end{align}
+Other calculations will look similar.
+\end{enumerate}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\item[] \textbf{S: 5.22}
+\begin{align}
+    H = \frac{p^2}{2m}+\frac{m\omega_0 x^2}{2}, V(t) = F_0x\cos\omega t.
+\end{align}
+The unperturbed ket is given by
+\begin{align}
+    \ket{\psi_0(t)}_I = \ket{0}.
+\end{align}
+Using time-dependent perturbation theory,
+\begin{align}
+\ket{\psi(t)}_I &= \sum_n c_n\ket{n}\\
+\ket{\psi(t)}_I &= \sum_n c_n^{(0)}\ket{n} + \sum_nc_n^{(1)}\ket{n}\\
+&=\sum_n\delta_{n0}\ket{n} - \sum_n \frac{i}{\hbar} \int_0^t
+    \braket{n|V_I(t')|0}dt'\\
+&=\ket{0}-\frac{i}{\hbar}\sum_n \int_0^t e^{i\omega_{n0}t'}
+    \braket{n|V(t')|0}\ket{n}dt'\\
+&=\ket{0}-\frac{i}{\hbar}\sum_n \int_0^t e^{i\omega_{n0}t'}F_0
+    \braket{n|x|0}\ket{n}\cos\omega t'dt'\\
+&=\ket{0}-\frac{i}{\hbar} \int_0^t e^{i\omega_{10}t'}F_0
+    \braket{1|x|0}\ket{1}\cos\omega t'dt'\\
+&=\ket{0}-\frac{iF_0}{\hbar}\sqrt{\frac{\hbar}{2m\omega_0}}\int_0^t
+    e^{i\omega_{10}t'}\cos\omega t'dt'\ket{1}\\
+&=\ket{0}-iF_0\sqrt{\frac{1}{2m\omega_0\hbar}}\int_0^t\frac{
+    e^{i(\omega_0+\omega)t'}+e^{i(\omega_0-\omega)t'}}{2} t'dt'\ket{1}\\
+&=\ket{0}-\frac{iF_0}{2}\sqrt{\frac{1}{2m\omega_0\hbar}}\left(\frac{
+    e^{i(\omega_0+\omega)t'}}{\omega_0+\omega}+\frac{
+    e^{i(\omega_0-\omega)t'}}{\omega_0-\omega}\right)\ket{1}\\
+&=\ket{0}-iF_0\sqrt{\frac{1}{2m\omega_0\hbar}}e^{i\omega_0t}\left(\frac{
+    2\omega_0\cos\omega t-2i\omega\sin{\omega t}}
+    {\omega_0^2-\omega^2}\right)\ket{1}.
+\end{align}
+To find the expectation of $x$,
+\begin{align}
+\braket{\psi(t)|x|\psi(t)} &= iF_0\sqrt{\frac{1}{\dots}} e^{-i\omega_0t}
+    \left(\frac{\ +\ }{-}\right)\braket{1|x|0} + c.c\braket{0|x|1}\\
+&= \boxed{\frac{F_0}{m\omega_0}\left(\frac{\omega_0\cos\omega t\sin\omega_0 t
+    -\omega\sin\omega t\cos\omega_0 t}{\omega_0^2-\omega^2}\right)}
+\end{align}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Find 0-0 probability from 1- (0-2) probability 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 5.24}\\
+    Consider a particle bound in the ground state $\ket{0}$ of a simple harmonic oscillator potential. At time $t=0$ a perturbation of the form $H'(x,t)=Ax^2e^{-t/\tau}$ is turned on. For $c_n(t)=\braket{n|U_I(t)|0}$ for $t>>\tau$, we have, to first order, for $n=0$:
+    \begin{align}
+            c_0(t)&=1-\frac{i}{\hbar}\int_0^t\braket{0|V(t')|0}dt'\\
+            &=1-\frac{i}{\hbar}\int_0^t e^{-t'/\tau}\braket{0|Ax^2|0}dt'\\
+            &=1-\frac{iA\tau}{2m\omega}(1-e^{-t/\tau})
+    \end{align}
+    The transition probability is:
+    \begin{align}
+            P_{0\rightarrow 0} &= |c_0(t)|^2\\
+            &=1+(\frac{A\tau}{2m\omega})^2(1-e^{-t/\tau})^2\\
+            &\simeq1+\Big(\frac{A\tau}{2m\omega}\Big)^2\hspace{2cm}
+    \end{align}
+\begin{align}
+\end{align}
+For $n\neq0$, we have: 
+\begin{align}
+            c_n(t)&=-\frac{i}{\hbar}\int_0^te^{i(E^0_n-E^0_0)t'/\hbar}\braket{n|V(t')|0}dt'\\
+            &=-\frac{i}{\hbar}\int_0^te^{(i(E^0_n-E^0_0)/\hbar-1/\tau)t'}\braket{n|Ax^2|0}dt'\\
+            &=-\frac{iA}{\sqrt{2}m\omega}\delta_{n,2}\int_0^te^{(i(E^0_n-E^0_0)/\hbar-1/\tau)t'}dt'\\
+            &=-\frac{iA\tau}{\sqrt{2}m\omega(1-in\tau\omega))}\delta_{n,2}(1-e^{(in\omega-1/\tau)t})\\
+            &\simeq-\frac{iA\tau}{\sqrt{2}m\omega(1-in\tau\omega))}\delta_{n,2}\\
+\end{align}
+Thus, the transition probability is:
+\begin{align}
+      P_{0\rightarrow 2} &= |c_2(t)|^2\\
+            &= \frac{1}{2(1+(n\tau\omega)^2)}\Big(\frac{A\tau}{m\omega}\Big)^2
+\end{align}
+and
+\begin{align}
+      P_{0\rightarrow n} &= |c_n(t)|^2\\
+            &= 0
+\end{align}
+otherwise.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Simplify                                                               
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\item[] \textbf{S: 5.25}
+\begin{enumerate}
+    
+\item
+Defining $E_2^0-E_1^0\equiv\hbar\omega_{21}$, time dependent perturbation theory gives
+\begin{align}
+c_n^{(0)} &= \delta_{ni}\\
+c_2^{(1)} &= \frac{-i}{\hbar}\int_0^te^{i\omega_{21}t'}V_{21}(t')dt'\\
+&= \frac{-i}{\hbar}\lambda\int_0^te^{i\omega_{21}t'}\cos{\omega t'}dt'\\
+&= -\frac{\lambda }{\hbar}\frac{e^{i\omega_{21}t}(\omega_{21}\cos(\omega t)
+    -i\omega\sin(\omega t))-i\omega_{21}}{(\omega_{21}-\omega)
+    (\omega_{21}+\omega)}\\
+&= -\frac{\lambda }{\hbar}\frac{[\omega_{21}\cos{(\omega_{21}t)}\cos{(\omega t)}+\omega\sin{(\omega_{21}t)}\sin{(\omega t)}]}{(\omega_{21}-\omega)(\omega_{21}+\omega)}\\
+&-i\frac{\lambda}{\hbar}\frac{[\omega_{21}\sin{(\omega_{21}t)}\cos{(\omega t)}+\omega\cos{(\omega_{21}t)}\sin{(\omega t)}-\omega_{21}]
+    }{(\omega_{21}-\omega)(\omega_{21}+\omega)}\\
+\end{align}
+The transition probability is thus given by:
+\begin{align}
+P_{1\rightarrow 2}&=|c_2(t)|^2\\
+&=\frac{\lambda^2}{\hbar^2}\frac{1}{(\omega_{21}-\omega)^2(\omega_{21}+\omega)^2}[(\omega_{21}\cos{(\omega_{21}t)}\cos{(\omega t)}+\omega\sin{(\omega_{21}t)}\sin{(\omega t)})^2\\
+&+(\omega_{21}\sin{(\omega_{21}t)}\cos{(\omega t)}+\omega\cos{(\omega_{21}t)}\sin{(\omega t)}-\omega_{21})^2]
+\end{align}
+
+\item If $E_1^0-E_2^0$ is close to $\pm\hbar\omega$, i.e. $(\omega_{21}\mp\omega)\simeq0$, the resulting transition probability would go to infinity, invalidating the previous procedure.
+
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{enumerate}
+\section*{October 20th}
+\begin{enumerate}
+    \item[] \textbf{S: 2.20}
+    
+     Some preliminary work (refresher):
+    For a simple harmonic oscillator:
+    \begin{align}
+        H&=\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}\\&=\frac{1}{2m}\left(p+im\omega x\right)\left(p-im\omega x\right)-\frac{im\omega}{2} \left[x,p\right]\\&=\hbar\omega \left(a^\dagger a +\frac{1}{2}\right)
+    \end{align}
+    where
+    \begin{equation}
+        a=\frac{1}{\sqrt{2m\hbar \omega}}\left(p-im\omega x\right)
+    \end{equation}
+    We note
+    \begin{equation}
+        \left[a,a^\dagger\right]=1
+    \end{equation}
+    
+    Now for the new stuff. Let $a_{\pm}$ be operators with the following commutation properties:
+    \begin{equation}
+        \left[a_{\pm},a_{\pm}^\dagger\right]=1,\hspace{1cm}\left[a_{\pm},a_{\mp}\right]=0, \hspace{1cm}\left[a_{\pm},a_{\mp}^\dagger\right]=0
+    \end{equation}
+    Let
+    \begin{equation}
+        J_{\pm}=\hbar a^{\dagger}_{\pm}a_{\mp},\hspace{1cm}J_z=\frac{\hbar}{2}\left(a_+^\dagger a_+-a_-^\dagger a_-\right),\hspace{1cm}N=a^\dagger_+a_++a_-^\dagger a_-
+    \end{equation}
+    Finally, let $\delta_{\pm}=1$ for $+$ and $0$ for $-$.
+    Then:
+    \begin{align}
+        \left[J_z,J_{\pm}\right]&=\frac{\hbar^2}{2}\left(\left[a_+^\dagger a_+,a_{\pm}^\dagger a_{\mp}\right]-\left[a_-^\dagger a_-,a_{\pm}^\dagger a_{\mp}\right]\right)\\&=\frac{\hbar^2}{2}\left(\left[a_+^\dagger a_+,a_\pm ^\dagger\right]a_{\mp}\delta_{\pm}+\left[a_+^\dagger a_+,a_\mp \right]a_{\pm}^\dagger\delta_{\mp}-\left[a_-^\dagger a_-,a_{\mp}\right]a_{\pm}^\dagger \delta_{\pm}-\left[a_-^\dagger a_-,a_{\pm}^\dagger\right]a_{\mp}\delta_{\mp}\right)\\&=\frac{\hbar^2}{2}\left(a_+^\dagger a_-\delta_{\pm}-a_+a_-^\dagger\delta_{\mp}-a_-a_+^\dagger\delta_{\pm}-a_-^\dagger a_+\delta_{\mp}\right)\\&=\hbar \left(\hbar a_+^\dagger a_-\delta_{\pm}-\hbar a_-^\dagger a_+\delta_\mp\right)\\&=\pm \hbar J_{\pm}
+    \end{align}
+    
+    Let $J^2$ be defined as $J^2=J_{+}J_-+J_z^2-\hbar J_z$. Then:
+    \begin{align}
+        \left[J^2,J_z\right]&=\left[J_+J_-+J_z^2-\hbar J_z,J_z\right]\\&=\left[J_+J_-,J_z\right]\\&=J_+\left[J_-,J_z\right]+\left[J_+,J_z\right]J_-\\&=-\hbar J_+J_-+\hbar J_+J_-\\&=-0
+    \end{align}
+    Finally
+    \begin{align}
+        J^2&=J_+J_-+J_z^2-\hbar J_z\\&=\hbar^2 a_+^\dagger a_-a_-^\dagger a_++\frac{\hbar^2}{4}\left(a_+^\dagger a_+-a_-^\dagger a_-\right)^2-\frac{\hbar^2}{2}\left(a_+^\dagger a_+-a_-^\dagger a_-\right)\\&=\\&=\frac{\hbar^2}{4}\left(4a_+^\dagger a_+a_-a_-^\dagger+a_+^\dagger a_+a_+^\dagger a_++a_-^\dagger a_-a_-^\dagger a_--2a_+^\dagger a_+a_-^\dagger a_--2a_+^\dagger a_++2a_-^\dagger a_-\right)\\&=\frac{\hbar^2}{4}\left(4a_+^\dagger a_+a_-^\dagger a_-+4a_+^\dagger a_+[a_-,a_-^\dagger]+a_+^\dagger a_+a_+^\dagger a_++a_-^\dagger a_-a_-^\dagger a_--2a_+^\dagger a_+a_-^\dagger a_--2a_+^\dagger a_++2a_-^\dagger a_-\right)\\&=\frac{\hbar^2}{4}\left(2a_+^\dagger a_+a_-^\dagger a_-+a_+^\dagger a_+a_+^\dagger a_++a_-^\dagger a_-a_-^\dagger a_-+2a_+^\dagger a_++2a_-^\dagger a_-\right)\\&=\frac{\hbar^2}{4}N^2+\frac{\hbar^2}{2}N\\&=\frac{\hbar^2}{2}\left(N\left(N+\frac{1}{2}\right)\right)
+    \end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 2.24}
+    
+    Let's work in the position basis. In that case, the Hamiltonian is given by
+    \begin{equation}
+        H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}-\nu_0\delta(x) 
+    \end{equation}
+    We want to find $\psi_n(x)$ s.t. 
+    \begin{equation}
+        H\psi_n=E_n\psi_n
+    \end{equation}
+    where $E_n<0$ because we are interested only in bound states.
+    For $x<0$, $\psi(x)$ obeys
+    \begin{equation}
+        \frac{d^2}{dx^2}\psi_n(x)-k^2\psi_n(x)=0,\hspace{1cm}k=\sqrt{-\frac{2mE}{\hbar^2}}
+    \end{equation}
+    And therefore, for $x<0$, $\psi_n(x)$ takes the form
+    \begin{equation}
+        \psi_n(x)=A_ne^{k_nx}+B_ne^{-k_nx}
+    \end{equation}
+    Likewise, for $x>0$, $\psi_n(x)$ takes the form
+    \begin{equation}
+        \psi_n(x)=C_ne^{k_nx}+D_ne^{-k_nx}
+    \end{equation}
+    For normalization reasons, $B_n=C_n=0$.
+    
+    Now, since it is clear that the Hamiltonian is invariant under parity inversion, the wave functions we consider can be restricted to those that satisfy $\psi_n(x)=\pm \psi_n(x)$. Therefore, $A_n=\pm D_n$.
+    
+    Next, we know that $\psi_n(x)$ has to be continuous at $x=0$ and its derivatives of both sides of $x=0$ satisfy
+    \begin{equation}
+        \frac{d\psi_n}{dx}\biggr\rvert_{x=\epsilon}-\frac{d\psi_n}{dx}\biggr\rvert_{x=-\epsilon}=-\frac{2m\nu_0}{\hbar^2}
+    \end{equation}
+    Therefore, $A_n=D_n$, and 
+    \begin{equation}
+        -2k_nA_n=-\frac{2m\nu_0}{\hbar^2}A_n\implies k_n=\frac{m\nu_0}{\hbar^2}
+    \end{equation}
+    Finally, because of normalization, we have
+    \begin{align}
+        1&=2A_n^2\int_0^\infty e^{-2kx}dx\\&=\frac{A_n^2}{k_n}\implies A_n=\sqrt{\frac{m\nu_0}{\hbar^2}}
+    \end{align}
+    Finally, we have
+    \begin{equation}
+        k_n=\frac{m\nu_0}{\hbar^2}\implies E=-\frac{m\nu_0^2}{2\hbar^2}
+    \end{equation}
+    \item[] \textbf{S: 2.40}
+    
+    Since neutrons are spin-$\frac{1}{2}$ particles, their general spin states can be represented as a superposition of $\ket{\uparrow}$ and $\ket{\downarrow}$, or states with definite values of spin along $\hat{B}$. Let's assume that the beam of neutrons is initially polarized in the state
+    \begin{equation}
+        \ket{\psi(0)}=\alpha\ket{\uparrow}+\beta\ket{\downarrow}
+    \end{equation}
+    Let's assume that the particles traveling along the upper path do not encounter a magnetic field. Let's assume that the particles moving along the lower encounter a constant magnetic field $\vec{B}$ over a distance $l$. Since the neutron travels with momentum $p_n=\frac{\hbar}{\bar{\lambda}}$, (assuming velocities in the classical range) that translates to a time in the magnetic field
+    \begin{equation}
+        t=\frac{m_n\bar{\lambda}l}{\hbar }
+    \end{equation}
+    
+    Now, because the Hamiltonian is given by
+    \begin{equation}
+        H=-\mu \cdot \vec{B}=-\left(\frac{e g_n}{m_nc}\right)\vec{S}\cdot \vec{B}=-\gamma \vec{S}\cdot \hat{B}
+    \end{equation}
+    The time evolution of a spin state is given by
+    \begin{align}
+        U(t,0)&=\text{exp}\left(\frac{i\gamma\vec{S}\cdot \vec{B}t}{\hbar}\right)\\&=\text{exp}\left(\frac{i\gamma \vec{\sigma}\cdot \vec{B}t}{2}\right)\\&=\cos\left(\theta\right)-i\sigma \cdot \hat{n}\sin(\theta),\hspace{1cm}\theta=\frac{\gamma|B|t}{2},\hat{n}=\hat{B}
+    \end{align}
+    Thus
+    \begin{align}
+        \ket{\psi(t)}&=U(t,0)\ket{\psi(0)}\\&=e^{-i\theta}\alpha\ket{\uparrow}+e^{i\theta}\beta \ket{\downarrow}
+    \end{align}
+    As we can see, $\ket{\psi(t)}=\ket{\psi(0)}$, which is the condition for maximum constructive interference, when 
+    \begin{equation}
+        \theta=2\pi n,\hspace{1cm}n=0,\pm 1,\pm2,\ldots
+    \end{equation}
+    Thus, for the simplest non-trivial case (i.e., $\theta=2\pi$), we solve for $\theta$ and hence $|B|$:
+    \begin{align}
+        2\pi=\frac{\gamma |B|t}{2}=\frac{1}{2}\left(\frac{e g_n}{m_nc}\right)\left(\frac{m\bar{\lambda}l}{\hbar}\right)|B|
+    \end{align}
+    Finally:
+    \begin{equation}
+        \boxed{|B|=\frac{4\pi c\hbar}{eg_n\bar{\lambda}l}}
+    \end{equation}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 3.21}
+    
+\begin{enumerate}[(a)]
+\item 
+\begin{align}
+L_i &= i\epsilon^{ijk}a_j a_k^\dag = i\epsilon^{ijk}\frac{1}{2
+    m\omega}(m\omega x_j + ip_j)(m\omega x_k - ip_k)\\
+&= \frac{i}{2m\omega}\epsilon^{ijk}[m^2\omega^2x_jx_k+im\omega p_jx_k
+    -im\omega x_jp_k+ p_jp_k]\\
+&= \boxed{\epsilon^{ijk}x_jp_k}\hspace{.5mm}. \hspace{2mm}\checkmark\\
+L_2 &= L_iL_i = \epsilon_{ijk}\epsilon_{ilm}a_ja_k^\dag a_la_m^\dag
+    = (\delta_{jl}\delta_{km}-\delta_{jm}\delta_{kl})a_ja_k^\dag a_la_m^\dag\\
+&= (a_ja_k^\dag a_ja_k^\dag + a_ja_k^\dag a_ka_j^\dag)
+    = (a_ja_j^\dag a_k^\dag a_k + a_k^\dag a_k^\dag a_ja_j)\\
+&= ((a_j^\dag a_j +1)a_k^\dag a_k + a_k^\dag a_k^\dag a_ja_j) = 
+    \boxed{(N(N +1) + a_k^\dag a_k^\dag a_ja_j)}\hspace{.5mm}. \hspace{2mm}\checkmark
+\end{align}
+\item 
+By acting $L^2$ and $L_z$ on various trial states $\ket{qlm}$ we find, with all equations of the form $\ket{qlm} = \ket{n_xn_yn_z}$ and denoting $-1 = \minus{1}$
+\begin{align}
+\ket{010} &= \ket{001}\\
+\ket{011} &= \frac{1}{\sqrt{2}}(\ket{100}+ i\ket{010})\\
+\ket{01\minus{1}} &= \frac{1}{\sqrt{2}}(\ket{100}- i\ket{010}).
+\end{align}
+\item 
+Assuming this problem is actually asking for $\ket{100}$, 
+\begin{align}
+\ket{100} &= \frac{1}{\sqrt{3}}(\ket{200}+\ket{020}+\ket{002})
+\end{align}
+\item 
+\end{enumerate}
+\begin{align}
+\ket{020} &= \frac{1}{6}(\ket{200}+\ket{020}-2\ket{002})\\
+\ket{021} &= \frac{1}{\sqrt{2}}(\ket{101}+i\ket{011})\\
+\ket{02\bar{1}} &= \frac{1}{\sqrt{2}}(\ket{101}-i\ket{011})\\
+\ket{022} &= \frac{1}{2}(\ket{200}-\ket{020})+\frac{i}{\sqrt{2}}\ket{110}\\
+\ket{02\bar{2}} &= \frac{1}{2}(\ket{200}-\ket{020})-\frac{i}{\sqrt{2}}\ket{110}.
+\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 3.30}
+    \begin{enumerate}[(a)]
+\item First, we create the Cartesian vector $\vec{W}=\vec{U}\times \vec{V}$. Then, you can create a spherical tensor of rank $1$ out of $\vec{W}$ with the prescription:
+\begin{equation}
+        T^{(1)}_q=Y_{l=1}^{m=q}(\vec{W})\implies T^{(1)}_0=\sqrt{\frac{3}{4\pi}}W_z,\hspace{2mm} T^{(1)}_{\pm 1}=\sqrt{\frac{3}{4\pi}}\left(\mp \frac{W_x\pm iW_y}{\sqrt{2}}\right)
+\end{equation}
+We can drop the $\sqrt{\frac{3}{4\pi}}$ factors, since a scalar multiple of a spherical tensor of rank $k$ is still a spherical tensor of rank $k$. Thus, finally, we have
+\begin{equation}
+        T^{(1)}_0=U_xV_y-U_yV_x,\hspace{1cm}T_{\pm 1}^{(1)}=\mp \frac{\left(U_yV_z-U_zV_y\right)\pm i\left(U_zV_x-U_xV_z\right)}{\sqrt{2}}
+\end{equation}
+\item 
+Let 
+\begin{equation}
+        X^{(1)}_0=U_z,X^{(1)}_{\pm 1}=\mp \frac{U_x\pm iU_y}{\sqrt{2}}
+\end{equation}
+and 
+\begin{equation}
+        Z^{(1)}_0=V_z,Z^{(1)}_{\pm 1}=\mp \frac{Z_x\pm iZ_y}{\sqrt{2}}
+\end{equation}
+We can now apply Theorem $3.1$ (Sakurai, page 251) to multiply the two rank-1 spherical tensors:
+\begin{align}
+    T^{(2)}_q=\sum_{q_1}\sum_{q_2}\braket{1 1;q_1 q_2|1 1; 2 q}X_{q_1}^{(1)}Z_{q_2}^{(1)}
+\end{align}
+
+For $j=2$, $j_1=j_2=1$, the non-zero Clebsch-Gordan coefficients are:
+\begin{equation}
+        \braket{1 1; 1 1|1 1; 2 2}=1
+\end{equation}
+\begin{equation}
+        \braket{1 1; 1 0| 1 1; 2 1}=\braket{1 1; 0 1| 1 1; 2 1}=\frac{1}{\sqrt{2}}
+\end{equation}
+\begin{equation}
+        \braket{1 1; 1 -1| 1 1 2 0}=\braket{1 1; 1 1| 1 1 2 0}=\frac{1}{\sqrt{6}}
+\end{equation}
+\begin{equation}
+        \braket{1 1; 0 0| 1 1 2 0}=\sqrt{\frac{2}{3}}
+\end{equation}
+and the ones corresponding to negative $m$'s. 
+
+And therefore
+\begin{equation}
+        T^{(2)}_{\pm 2}=X_{\pm 1}^{(1)}Z_{\pm 1}^{(1)}=\frac{1}{2}\left(U_x\pm iU_y\right)\left(V_x\pm iV_y\right)
+\end{equation}
+\begin{equation}
+        T^{(2)}_{\pm 1}=\frac{1}{\sqrt{2}}\left(X_{\pm 1}^{(1)}Z_0^{(1)}+X_0^{(1)}Z_{\pm 1}^{(1)}\right)=\frac{1}{2}\left(\left(U_x\pm iU_y\right)V_z+U_z(V_x\pm iV_y)\right)
+\end{equation}
+\begin{align}
+    T_0^{(2)}&=\frac{1}{\sqrt{6}}\left(X_{-1}Z_1+X_1Z_{-1}\right)+\sqrt{\frac{2}{3}}X_0Z_0\\&=-\frac{1}{2\sqrt{6}}\left((U_x-iU_y)(V_x+iV_y)+(U_x+iU_y)(V_x-iV_y)\right)+\sqrt{\frac{2}{3}}U_zV_z
+\end{align}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 4.2}
+    
+    \begin{enumerate}[(a)]
+        \item Two generic translations in 3-space always commute (the product of two translations can be thought of as the addition of displacement vectors).
+        \item In general, rotations about different axes do not commute (see rectangular prism rotated about $x$ and $y$ axes by $\frac{\pi}{2}$ radians in both orders).
+        \item Translation and parity do not commute. Let's say you start at $x=1$ (in 1-D coordinate). Let's say you translate by $1$ unit, which gets you to $x=2$, and then apply the parity operator. You end up at $x=-2$. If you apply the parity operator first, you get to $x=-1$, and then translation gets you to $x=0$. Clearly, the end result is different.
+        \item Rotations and parity inversion do commute. The generators of rotations (angular momentum operators) are invariant under parity inversion. 
+    \end{enumerate}
+    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 4.3}
+        
+    Assume $AB+BA=0$ and $A\ket{\psi}=a\ket{\psi}$ and $B\ket{\psi}=b\ket{\psi}$. Applying $B$ to $A\ket{\psi}$, we have $BA\ket{\psi}=ba\ket{\psi}$. Applying $A$ to $B\ket{\psi}$, we have $AB\ket{\psi}=ab\ket{\psi}$. But $AB=-BA$, so we have $ab=-ba=0$. So one of $a$ or $b$ must be $0$.
+    
+    Let's consider the momentum operator $p$ and the parity operator $\pi$, which satisfy $\{p,\pi\}=0$. The eigenstates of $p$ are of the form $e^{ikx}$ with corresponding eigenvalues $\hbar k$. Meanwhile, the parity operator's eigenvectors satisfy $f(x)=\pm f(-x)$, with eigenvalues $\pm1$. It is clear that the only state that is simultaneously an eigenstate of $p$ and $\pi$ is the one corresponding to $k=0$. 
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 4.11}
+    
+     The Hamiltonian, which can be written as $H=\frac{\vec{p}^2}{2m}+V(\vec{x})$ is invariant under time-reversal. Therefore, its energy eigenfunctions must be real (up to a phase factor independent of $\vec{x}'$). 
+    
+    Recall the expressions for the angular momenta in spherical coordinates: 
+    \begin{equation}
+        L_z=\frac{\hbar}{i}\frac{\partial}{\partial \phi}
+    \end{equation}
+    \begin{equation}
+        L_x=-i\hbar \left(-\sin{\phi}\frac{\partial}{\partial \theta}-\cos{\phi}\cot{\theta}\frac{\partial}{\partial \theta}\right)
+    \end{equation}
+    and 
+    \begin{equation}
+        L_y=-i\hbar \left(\cos{\phi}\frac{\partial}{\partial \theta}-\sin{\phi}\cot{\theta}\frac{\partial}{\partial \theta}\right)
+    \end{equation}
+    
+    it is quite clear that for each $L_i$, given a state $\psi(r,\theta,\phi)$ which is real valued, the expectation value $\left<L_i\right>$ will be imaginary. The only way an expectation value can be imaginary is if it is equal to $0$. So
+    \begin{equation}
+        \left<\vec{L}\right>=0
+    \end{equation}
+    
+    Consider an energy eigenstate written as 
+    \begin{equation}
+        \psi(r,\theta,\phi)=\sum_{l,m}F_{lm}(r)Y_{l}^m(\theta,\phi)
+    \end{equation}
+    Because 
+    \begin{equation}
+        \left(Y^m_l(\theta,\phi)\right)^*=(-1)^m Y_l^{-m}(\theta,\phi)
+    \end{equation}
+    
+    and since $\psi^*=\psi$, we have
+    \begin{align}
+         \psi^*&=\sum_{l,m}F_{lm}^*(-1)^mY_l^{-m}(\theta,\phi)\\&=\sum_{l,m}(-1)^mF^*_{l,-m}Y_l^m(\theta,\phi)\\&=\sum_{l,m}F_{lm}Y_l^m
+    \end{align}
+    By the orthogonality property of the spherical harmonics, we conclude
+    \begin{equation}
+        \boxed{F_{lm}(r)=(-1)^m F^*_{l,-m}}
+    \end{equation}
+    
+    \item[] \textbf{S: 4.12}
+    
+    Let's first construct the three-dimensional spin-1 matrices:
+    \begin{equation}
+        S_z=\hbar \left(\begin{array}{ccc}1&0&0\\0&0&0\\0&0&-1\end{array}\right)
+    \end{equation}
+    
+    \begin{equation}
+        S_+=\hbar \sqrt{2}\left(\begin{array}{ccc}0&1&0\\0&0&1\\0&0&0\end{array}\right)
+    \end{equation}
+    and 
+    \begin{equation}
+        S_-=\hbar \sqrt{2}\left(\begin{array}{ccc}0&0&0\\1&0&0\\0&1&0\end{array}\right)
+    \end{equation}
+    And, from $S_{\pm}=S_x\pm iS_y$, we get
+    \begin{equation}
+        S_x=\frac{\hbar}{\sqrt{2}}\left(\begin{array}{ccc}0&1&0\\1&0&1\\0&1&0\end{array}\right)
+    \end{equation}
+    and 
+    \begin{equation}
+        S_y=\frac{\hbar}{\sqrt{2}}\left(\begin{array}{ccc}0&-i&0\\i&0&-i\\0&i&0\end{array}\right)
+    \end{equation}
+    Thus
+    \begin{equation}
+        S_z^2=\hbar^2\left(\begin{array}{ccc}1&0&0\\0&0&0\\0&0&1\end{array}\right),\hspace{0.5cm}S_x^2=\frac{\hbar^2}{2}\left(\begin{array}{ccc}1&0&1\\0&2&0\\1&0&1\end{array}\right),\hspace{0.5cm}S_y^2=\frac{\hbar^2}{2}\left(\begin{array}{ccc}1&0&-1\\0&2&0\\-1&0&1\end{array}\right)
+    \end{equation}
+    Therefore, the Hamiltonian is
+    \begin{align}
+        H&=AS_z^2+B(S_x^2-S_y^2)\\&=\hbar^2\left(\begin{array}{ccc}A&0&B\\0&0&0\\B&0&A\end{array}\right)
+    \end{align}
+    
+    Thus, $H$ has eigenvectors and eigenvalues given by
+    
+    \begin{equation}
+        H\left(\begin{array}{c}0\\1\\0\end{array}\right)=0\left(\begin{array}{c}0\\1\\0\end{array}\right),H\left(\begin{array}{c}\frac{1}{\sqrt{2}}\\0\\\frac{1}{\sqrt{2}}\end{array}\right)=(A+B)\left(\begin{array}{c}\frac{1}{\sqrt{2}}\\0\\\frac{1}{\sqrt{2}}\end{array}\right),H\left(\begin{array}{c}\frac{1}{\sqrt{2}}\\0\\-\frac{1}{\sqrt{2}}\end{array}\right)=(A-B)\left(\begin{array}{c}\frac{1}{\sqrt{2}}\\0\\-\frac{1}{\sqrt{2}}\end{array}\right)
+    \end{equation}
+    The Hamiltonian is invariant under time reversal, because $S_i\to -S_i$ under time reversal, so $S_i^2\to S_i^2$. And because 
+    \begin{equation}
+        \Theta^{-1}S_z\Theta =-S_z\implies S_z\Theta\ket{m}=-\Theta S_z\ket{m}=-\hbar m\Theta\ket{m}\implies \Theta\ket{m}=e^{i\delta }\ket{-m}
+    \end{equation}
+    we see
+    \begin{align}
+        \Theta\left(\begin{array}{c}1\\0\\0\end{array}\right)=e^{i\delta_1}\left(\begin{array}{c}0\\0\\1\end{array}\right),\Theta\left(\begin{array}{c}0\\1\\0\end{array}\right)=e^{i\delta_0}\left(\begin{array}{c}0\\1\\0\end{array}\right),\Theta\left(\begin{array}{c}0\\0\\1\end{array}\right)=e^{i\delta_{-1}}\left(\begin{array}{c}1\\0\\0\end{array}\right)
+    \end{align}
+    However, $\delta_1$ and $\delta_{-1}$ are related because for integer spins, $\Theta^2=1$. Therefore, $e^{-i\delta_1}e^{i\delta_{-1}}=1\implies e^{i\delta_1}=e^{-\delta_{-1}}$. 
+    
+    And therefore
+    \begin{equation}
+        \Theta\psi_0=e^{i\delta_0}\psi_0,\hspace{1cm}\Theta\psi_{A+B}=e^{i\delta_{1}}\psi_{A+B},\hspace{1cm}\Theta\psi_{A-B}=e^{i\delta_1}\psi_{A-B}
+    \end{equation}
+    And, if we adopt the phase convention $\Theta\ket{j,m}=i^{2m}\ket{j,m}$, then we find
+    \begin{equation}
+            \Theta\psi_0=\psi_0,\hspace{1cm}\Theta\psi_{A+B}=-\psi_{A-B}
+    \end{equation}
+
+\end{enumerate}
+
+\section*{November 4th}
+\begin{enumerate}
+    \item[] \textbf{S: 4.8}
+    
+    \begin{enumerate}[(a)]
+        \item The problem as stated is absurd. The only freedom one has to play with is the phase. A general state with
+        \begin{equation}
+            \psi(x)=f(x)+ig(x)
+        \end{equation}
+        with $f(x)$ and $g(x)$ square integrable, is a valid wave function. However, it is not necessarily the case that 
+        \begin{equation}
+            \psi(x)=e^{i\delta}h(x)=\cos{\delta}h(x)+i\sin{\delta}h(x)
+        \end{equation}
+        because $f(x)$ and $g(x)$ need not be scalar multiples of one another. 
+        
+        Therefore, I think the problem meant to ask us to prove that the \textit{energy eigenfunction} in position space can always be made real. I recreate the proof given in the book.
+        
+        Because the Hamiltonian is invariant, we have $H\Theta=\Theta H$. Thus
+        \begin{equation}
+            H\Theta \ket{n}=\Theta H\ket{n}=E_n\Theta \ket{n}
+        \end{equation}
+        Since $H$ is not degenerate, we conclude
+        \begin{equation}
+            \Theta \ket{n}=e^{i\delta} \ket{n}\implies \braket{x''|\Theta|n}=e^{i\delta}\braket{x''|n}
+        \end{equation}
+        
+        But also
+        \begin{align}
+            \braket{x''|\Theta|n}&=\bra{x''}\Theta\left(\int d^3x' \ket{x'}\braket{x'|n} \right)\\&=\bra{x''}\int d^3 x' \ket{x'}\braket{x'|n}^*\\&=\braket{x''|n}^*
+        \end{align}
+        
+        Let $\phi(x)=\braket{x|n}$. Let $\psi(x)=e^{i\delta/2}\phi(x)$. From the results above, we see $e^{i\delta}\phi(x)=\phi^*(x)\implies \psi(x)=\psi(x)^*$, so $\psi(x)$, which differs from $\braket{x|n}$ merely by a phase factor, is real. QED.
+        \item
+        It is not a problem that $e^{ikx}$, an energy eigenfunction for the free-particle Hamiltonian, cannot be expressed as a real function (up to a phase), because the state $e^{-ikx}$ is a state with the same energy. Hence, the Hamiltonian is degenerate, and the theorem proven above does not hold.
+
+    \end{enumerate}
+    
+    \item[] \textbf{S: 4.9}
+    
+    \begin{align}
+        \Theta \ket{\alpha}&=\Theta \int d^3p' \ket{\vec{p}}\braket{\vec{p}|\alpha}\\&=\int d^3p' \braket{\vec{p}'|\alpha}^*\Theta \ket{\vec{p'}}\\&=\int d^3 p' \braket{\vec{p}'|\alpha}^*\ket{-\vec{p}'}\\&=\int d^3p'\ket{\vec{p'}}\braket{-\vec{p}'|\alpha}
+    \end{align}
+    Taking the inner product with $\bra{\vec{p}}$ on the right, we find
+    \begin{equation}
+        \phi_\alpha(\vec{p}')\equiv \braket{\vec{p}'|\alpha}\rightarrow \braket{-\vec{p}'|\alpha}^*\equiv \phi_{\alpha}(-\vec{p}')^*
+    \end{equation}
+    
+    \item[] \textbf{S: 4.10}
+    
+     
+    Note
+    \begin{equation}
+        \Theta \ket{j,m}=e^{i\delta_m}\ket{j,-m}
+    \end{equation}
+    because 
+    \begin{equation}
+        \Theta \vec{J}\Theta^{-1}=-\vec{J}
+    \end{equation}
+    Also, because
+    \begin{equation}
+        \Theta^2\ket{j,m}=(-1)^{2j}\ket{j,m}
+    \end{equation}
+    we conclude
+    \begin{equation}
+        e^{-i\delta_m}e^{i\delta_{-m}}=(-1)^{2j}
+    \end{equation}
+     \begin{enumerate}[(a)]
+        \item
+        \begin{align}
+            \Theta D(R)\ket{j,m}&=D(R)\Theta \ket{j,m} \\&=e^{i\delta_m} D(R) \ket{j,-m}
+        \end{align}
+        because rotations and motion-reversal commute.
+        \item 
+        \begin{align}
+           \Theta D(R)\ket{j,m}&=\Theta \sum_{m'}\ket{j,m'}\braket{j,m'|D(R)|j,m}\\&=\Theta \sum_{m'}\ket{j,m'}D^{(j)}_{m'm}\\&=\sum_{m'}e^{i\delta_{m'}}\ket{j,-m'}D^{(j)*}_{m'm}
+        \end{align}
+        And so
+        \begin{align}
+            \braket{j,m'|\Theta D(R)|j,m}&=e^{i\delta_{-m'}}D^{(j)*}_{-m',m}
+        \end{align}
+        
+        Simultaneously,
+        \begin{align}
+            \Theta D(R)\ket{j,m}&=D(R)\Theta \ket{j,m}\\&=e^{i\delta_m} D(R)\ket{j,-m}\\&=\sum_{m'}e^{i\delta_m}\ket{j,m'}D^{(j)}_{m',-m}
+        \end{align}
+        And so
+        \begin{equation}
+            \braket{j,m'|\Theta D(R)|j,m}=e^{i\delta_m}D^{(j)}_{m',-m}
+        \end{equation}
+        Thus, we get the result
+        \begin{equation}
+            e^{i\delta_{-m'}}D^{(j)*}_{-m',m}=e^{i\delta_m}D^{(j)}_{m',-m}
+        \end{equation}
+        Letting $m'\to -m'$, we thus finally get
+        \begin{equation}
+            D^{(j)^*}_{m',m}=e^{i(\delta_m-\delta_{m'})}D^{(j)}_{-m',-m}
+        \end{equation}
+        
+        We now use the result from part $(c)$ which states that $e^{\delta_m}=i^{2m}$. Thus, the result above becomes
+                \begin{equation}
+            D^{(j)^*}_{m',m}=i^{2(m-m')}D^{(j)}_{-m',-m}=(-1)^{m-m'}D^{(j)}_{-m',-m}
+        \end{equation}
+        \item 
+        Let us assume that for integer spin, the following holds
+        \begin{equation}
+            \Theta\ket{lm}=(-1)^m\ket{l,-m}=i^{2m}\ket{j,-m}
+        \end{equation}
+        We know that, for the phase convention adopted for spherical harmonics, the above holds for orbital momentum eigenstates. 
+        
+        Furthermore, following Sakurai, we adopt the following convention for the time reversal operator's action on spin-1/2 states:
+        \begin{equation}
+            \Theta\ket{\uparrow}=i\ket{\downarrow}=i^{2\left(\frac{1}{2}\right)}\ket{\downarrow},\hspace{1cm}\Theta\ket{\downarrow}=i^{-1}\ket{\uparrow}=i^{2\left(-\frac{1}{2}\right)}\ket{\uparrow}
+        \end{equation}
+        
+        We now proceed with a proof by induction. 
+        
+        Base case: let's add the angular momentum states to get the highest $j$ and $m$ state:
+        \begin{equation}
+            \ket{j=l+\frac{1}{2},m=l+\frac{1}{2}}=\ket{l,m_l=l}\otimes \ket{\frac{1}{2},\frac{1}{2}}
+        \end{equation}
+        Thus
+        \begin{align}
+            \Theta\ket{j=l+\frac{1}{2},m=l+\frac{1}{2}}&=(\Theta\otimes\Theta)\ket{ll}\otimes \ket{\frac{1}{2},\frac{1}{2}}\\&=i^{2\left(l+\frac{1}{2}\right)}\ket{l,-l}\otimes \ket{\frac{1}{2},-\frac{1}{2}}\\&=i^{2m}\ket{j=l+\frac{1}{2},m=-l-\frac{1}{2}}
+        \end{align}
+        
+        Inductive step: assume that 
+        \begin{equation}
+                \Theta\ket{j=l+\frac{1}{2},m}=i^{2m}\ket{j,m}
+        \end{equation}
+        Then:
+        \begin{align}
+                \Theta \ket{j=l+\frac{1}{2},m-1}&=\frac{1}{\sqrt{j(j+1)-m(m-1)}}\Theta\left(J_-\ket{j=l+\frac{1}{2},m}\right)\\&=\frac{1}{\sqrt{j(j+1)-m(m-1)}}\Theta\left((J_x+iJ_y)\ket{j=l+\frac{1}{2},m}\right)\\&=-\frac{1}{\sqrt{j(j+1)-m(m-1)}}J_+\Theta\ket{j=l+\frac{1}{2},m}\\&=\frac{i^{2(m+1)}}{\sqrt{j(j+1)-m(m-1)}}J_+\ket{j=l+\frac{1}{2},-m}\\&=i^{2(m+1)}\frac{\sqrt{j(j+1)-(-m)(-m+1)}}{\sqrt{j(j+1)-m(m-1)}}\ket{j=l+\frac{1}{2},-(m-1)}\\&=i^{2(m-1)}i^4\ket{j=l+\frac{1}{2},-(m-1)}\\&=i^{2(m-1)}\ket{j=l+\frac{1}{2},-(m-1)}
+        \end{align}
+        Thus, by the principle of mathematical induction, for any $j=l+\frac{1}{2}$ and $-j\leq m\leq j$, we conclude that $\Theta\ket{j,m}=i^{2m}\ket{j,-m}$. 
+        
+        Since we already knew the phase for all integer angular momentum states, and we now have shown that the same rule applies to all half-integer angular momentum states, we conclude that quite generally
+        \begin{equation}
+                \Theta\ket{j,m}=i^{2m}\ket{j,-m}
+        \end{equation}
+    \end{enumerate}
+    \item[] \textbf{S: 5.8}
+    
+    \begin{enumerate}[(a)]
+\item 
+Let $U_{\pm 1}=\mp\frac{x\pm iy}{\sqrt{2}}$ and $U_0=z$, thus defining the coordinates of a rank 1 spherical tensor. Then
+\begin{equation}
+        \braket{n=2,l=1,m=0|x|n=2,l=0,m=0}=0
+\end{equation}
+because $x=-\frac{U_1+U_-}{\sqrt{2}}$, and by the m-selection rule for spherical tensors, the matrix elements of $U_1$ and $U_{-1}$ separately must be $0$.
+\item The Wigner-Eckart theorem does not let us conclude that the matrix element is $0$. Neither does Parity. From the time-reversal operator, we see that the matrix element is imaginary:
+\begin{equation}
+    \ket{\alpha}=\ket{n=2,l=1,m=0}\rightarrow \ket{\tilde{\alpha}}=i^0\ket{n=2,l=1,m=0}=\ket{\alpha}
+\end{equation}
+and 
+\begin{equation}
+    \ket{\beta}=\ket{n=2,l=0,m=0}\rightarrow \ket{\tilde{\alpha}}=i^0\ket{n=2,l=0,m=0}=\ket{\beta}
+\end{equation}
+So
+\begin{align}
+        \braket{\alpha|p_z|\beta}&=\braket{\tilde{\beta}|\Theta p_z\Theta^{-1}|\tilde{\alpha}}\\&=\braket{\beta|(-p_z)|\alpha}\\&=-\ket{\alpha|p_z|\beta}^*
+\end{align}
+We are forced to evaluate the matrix element by direct computation. In the coordinate basis, we have
+\begin{equation}
+    p_z=\frac{\hbar}{i}\frac{\partial}{\partial z}=\frac{\hbar}{i}\left[\frac{\partial r}{\partial z}\frac{\partial}{\partial r}+\frac{\partial \theta}{\partial z}\frac{\partial}{\partial \theta}+\frac{\partial \phi}{\partial z}\frac{\partial}{\partial \phi}\right]=\frac{\hbar}{i}\left[\frac{1}{\cos{\theta}}\frac{\partial}{\partial r}-\frac{1}{r\sin{\theta}}\frac{\partial}{\partial \theta}\right]
+\end{equation}
+We note:
+\begin{equation}
+    Y_1^0(\theta,\phi)=\sqrt{\frac{3}{4\pi}}\cos{\theta},\hspace{1cm}Y_0^0(\theta)=\frac{1}{\sqrt{4\pi}}
+\end{equation}
+and 
+\begin{equation}
+    R_{20}=\frac{2}{(2a_0)^{\frac{3}{2}}}\left(1-\frac{r}{2a_0}\right)e^{-\frac{r}{2a_0}},\hspace{1cm}R_{21}=\frac{1}{\sqrt{3}(2a_0)^{\frac{3}{2}}}\frac{r}{a_0}e^{-\frac{r}{2a_0}}
+\end{equation}
+Thus
+\begin{align}
+    \braket{n=2,l=1,m=0|p_z|n=2,l=0,m=0}&=\frac{\sqrt{3}\hbar}{i}\int_0^\infty R_{21}\frac{\partial}{\partial r}\left(R_{20}\right)r^2dr\\&=\text{constant}\times \frac{\hbar}{a_0}
+\end{align}
+\item 
+Let's lower the state $j=9/2$, $m=9/2$, $l=4$, $s=\frac{1}{2}$:
+\begin{align}
+         &J_-\ket{l=4,s=\frac{1}{2};j=\frac{9}{2}m=\frac{9}{2}}\\&=\hbar \sqrt{\frac{9}{2}\frac{11}{2}-\frac{9}{2}\frac{7}{2}}\ket{ls;j=\frac{9}{2}m=\frac{7}{2}}\\&=3\hbar \ket{ls;jm=\frac{7}{2}}\\&=\left(L_-+S_-\right)\ket{l=4,m_l=4;s=\frac{1}{2},m_s=\frac{1}{2}}\\&=\hbar 2\sqrt{2}\ket{m_l=3;m_s=\frac{1}{2}}+\hbar\ket{m_l=4;m_s=-\frac{1}{2}}
+\end{align}
+and therefore
+\begin{equation}
+        \ket{l=4,s=\frac{1}{2}lj=\frac{9}{2},m=\frac{7}{2}}=\frac{2\sqrt{2}}{3}\ket{m_l=3;m_s=\frac{1}{2}}+\frac{1}{3}\ket{m_l=4,m_s=-\frac{1}{2}}
+\end{equation}
+Evaluating $L_z$ in this state, we find
+\begin{equation}
+        \braket{L_z}=\hbar \left(3\frac{8}{9}+\frac{4}{9}\right)=\frac{28}{9}\hbar 
+\end{equation}
+\item 
+The singlet and triplet states with $m_s=0$ are
+\begin{equation}
+        \ket{00}=\frac{1}{\sqrt{2}}\left(\ket{\uparrow \downarrow}-\ket{\downarrow\uparrow}\right),\hspace{1cm}\ket{10}=\frac{1}{\sqrt{2}}\left(\ket{\uparrow \downarrow}+\ket{\downarrow\uparrow}\right)
+\end{equation}
+where the first spin refers to the electron, and the second to the positron. Therefore, we see
+\begin{equation}
+        S_z^{(e-)}\ket{\text{singlet}}=\hbar \ket{\text{triplet},m_s=0}
+\end{equation}
+and 
+\begin{equation}
+        S_z^{(e+)}\ket{\text{singlet}}=-\hbar \ket{\text{triplet},m_s=0}
+\end{equation}
+Therefore
+\begin{equation}
+        \braket{\text{singlet}|S_z^{e-}-S_z^{e+}|\text{triplet},m_s=0}=2\hbar
+\end{equation}
+\item
+\begin{equation}
+        \vec{S}_1\cdot \vec{S}_2=\frac{1}{2}\left(\vec{S}^2-\vec{S}_1^2-\vec{S}_2^2\right)
+\end{equation}
+For an electron, a spin-1/2 particle, $\vec{S}_1^2=\vec{S}_2^2=\hbar^2\left(\frac{1}{2}\right)\left(\frac{1}{2}+1\right)=\frac{3}{4}\hbar^2$. Furthermore, in the ground state of the hydrogen molecule, the two electrons will be in the singlet state, so $\vec{S}^2=0$. Thus, we have
+\begin{equation}
+        \braket{\vec{S}_1\cdot \vec{S}_2}=-\frac{3}{4}\hbar^2
+\end{equation}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item[] \textbf{S: 5.17}
+\begin{align}
+    H = AL^2+BL_z+CL_y
+\end{align}
+\begin{enumerate}
+\item
+for $H=AL^2+BL_z$, the energies are $E^0_{lm} = Al(l+l)+Bm$. Assuming $B<<A$, there are no degeneracies. The energies are then
+\begin{align}
+E'_{lm} &= E^0_{lm} + C\braket{lm|L_y|lm} + C^2\sum_{lm\neq l'm'}
+    \frac{|\braket{lm|L_y|l'm'}|^2}{E_{lm}-E_{l'm'}}.
+\end{align}
+The first order term is 0 by the Wigner-Eckhart theorem. For the second term, $L_y=\frac{1}{2i}(L_+-L_-)$, so
+\begin{align}
+E_{lm}^{(2)} &= C^2\sum_{lm\neq l'm'}\frac{|\braket{lm|L_y|l'm'}|^2}
+    {E_{lm}-E_{l'm'}}\\
+&= C^2\frac{|\braket{lm|L_+|lm-1}|^2}{2(E_{lm}-E_{lm-1})} + 
+    C^2\frac{|\braket{lm|L_-|lm+1}|^2}{2(E_{lm}-E_{lm+1})}\\
+&= C^2\frac{l(l+1)-m(m-1)}{2B}+C^2\frac{l(l+1)-m(m+1)}{-2B}\\
+&= C^2\frac{l(l+1)-l(l+1)+m(m+1)-m(m-1)}{2B}\\
+&=\frac{C^2m}{B}.
+\end{align}
+Therefore,
+\begin{align}
+E_{lm}\approx \boxed{Al(l+l)+Bm+\frac{C^2m}{B}}.
+\end{align}
+\end{enumerate}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 5.23}
+    \begin{enumerate}
+        \item 
+        \begin{equation}
+            H=H_0+V,\hspace{1cm} H=\frac{p^2}{2m}+\frac{m\omega^2 x^2}{2},\hspace{1cm}V=-F_0e^{-\frac{t}{\tau}}x
+        \end{equation}
+        and
+        \begin{equation}
+            H_0\ket{n}=\hbar \omega\left(n+\frac{1}{2}\right)\ket{n}
+        \end{equation}
+        
+        Now,
+        \begin{equation}
+            \ket{\psi,t_0;t}_I=U_I(t,t_0)\ket{0}=\sum_{n}c_n(t)\ket{n}
+        \end{equation}
+        where 
+        \begin{align}
+           c_n(t)&=\braket{n|U_I(t,t_0)|0}\\&=c_n^{(0)}(t)+c_n^{(1)}(t)+\ldots\\&=\delta_{n0}-\frac{i}{\hbar}\int_0^t e^{i\omega_{n0}t'}V_{n0}(t')dt'
+        \end{align}
+        where $\omega_{n0}=(E_n-E_0)/\hbar=n\omega$ and 
+        \begin{align}
+            V_{n0}(t')=-F_0e^{-\frac{t'}{\tau}}\braket{n|x|0}
+        \end{align}
+        Given 
+        \begin{equation}
+            \braket{n|x|m}=\sqrt{\frac{\hbar}{2m\omega_0}}\left(\sqrt{m+1}\delta_{n,m+1}+\sqrt{m}\delta_{n,m-1}\right)
+        \end{equation}
+        we find
+        \begin{equation}
+            V_{n0}(t')=-F_0e^{-\frac{t'}{\tau}}\sqrt{\frac{\hbar}{2m\omega_0}}\delta_{n1}
+        \end{equation}
+        Thus, $c_{n0}=0$ for $n>1$ to first order, and 
+        \begin{align}
+            c_{10}(t)&=F_0\sqrt{\frac{\hbar}{2m\omega_0}}\frac{i}{\hbar}\int_0^t e^{in\omega t'}e^{-\frac{t'}{\tau}}dt'\\&=i\frac{F_0}{\sqrt{2m\hbar \omega_0}}\frac{1}{in\omega -\tau^{-1}}\left(e^{t (in\omega-\tau^{-1}}-1\right)
+        \end{align}
+        And so the probability of transitioning is given by
+        \begin{align}
+            P_{0\to 1}&=\frac{F_0^2}{2m\hbar \omega}\frac{1}{\left|i\omega -\tau^{-1}\right|}\left|e^{t\left(i\omega-\tau^{-1}\right)}-1\right|\\&=\frac{F_0^2}{2m\hbar \omega}\frac{1}{\omega^2+\tau^{-2}}\left(1+e^{-\frac{2t}{\tau}}-2\cos\left(\omega t\right)e^{-\frac{t}{\tau}}\right)
+        \end{align}
+        
+        As $t\to \infty$, we have
+        \begin{equation}
+            P_{0\to 1}=\frac{F_0^2}{2m\hbar \omega}\frac{1}{\omega^2+\tau^{-2}}
+        \end{equation}
+        which is independent of time. In retrospect, this result is not too surprising, since as $t\to\infty$, the time-dependent force goes to $0$. Therefore, after a sufficiently long period of time, there's no force to driving transitions, so the probabilities for transitions should level out.
+        
+        \item To first order, we cannot find higher excited states. Namely, $|c_{n}(t)|^2$ is non-zero only if we include second-order terms and higher. 
+    \end{enumerate}
+\end{enumerate}
+\section*{November 10th}
+\begin{enumerate}
+    \item[] \textbf{S: 3.31}
+    
+    \begin{enumerate}[(a)]
+\item 
+Let 
+$T_{\pm 1}=\mp \frac{x\pm iy}{\sqrt{2}}$, and $T_0=z$. $T$ is a spherical tensor of rank $1$. Therefore, by the Wigner-Eckart Theorem
+\begin{equation}
+        \braket{n'j'm'|T_q|njm}=\braket{j1;mq|j1;j'm'}\frac{\braket{n'j'||T||nj}}{\sqrt{2j+1}}
+\end{equation}
+
+The constant in the numerator is independent of $q$, $m'$, and $m$. For ease of notation, call the entire fraction $C(n',j',n,j,T)\equiv C$.
+Therefore
+\begin{equation}
+        \braket{n'j'm'|\mp\frac{x\pm iy}{\sqrt{2}}|njm}=\braket{j1;m,\pm1|j1;j'm'}C
+\end{equation}
+and 
+\begin{equation}
+        \braket{n'j'm'|z|njm}=\braket{j1;m0|j1;j'm'}C
+\end{equation}
+Specifically, if $|j-1|>j'$ or $j+1<j'$, then the matrix element is $0$ (regardless of the value of $q$). Furthermore, if $m+q\neq m'$, the matrix element is $0$. Thus, we see that for different values of $q$, the $T_q$ is non-vanishing for different matrix elements. Thus, there is no matrix element of $T_q$ that is non-zero for all $q$.
+
+
+\item Let
+\begin{equation}
+        \psi(\vec{x})=\braket{\vec{x}|\psi}=R_{nl}(r)Y_l^m(\theta,\phi)
+\end{equation}
+Let $A_{\pm 1}=\mp \frac{x\pm i}{\sqrt{2}}$ and $A_0=z$. We recognize
+\begin{equation}
+        A_i\ket{\vec{x}}=A_i'\ket{\vec{x}},\hspace{1cm}A_i'\equiv \sqrt{\frac{4\pi}{3}}rY_1^i (\theta,\phi)
+\end{equation}
+
+Then:
+\begin{align}
+    \braket{n'j'm'|A_i|njm}&=\int d\vec{x} \braket{n'j'm'|\vec{x}}\braket{\vec{x}|A_i|njm}\\&=\int r^2 dr \int \sin{\theta} d\theta \int d\phi R^*_{n'l'}Y_{l'}^{m'*}(\theta,\phi)A_i' R_{nl}Y_l^m(\theta,\phi)\\&=\left[\sqrt{\frac{4\pi}{3}}\int r^3 dr R_{n',l'}R_{nl}\right]\int \sin{\theta} d\theta \int d\phi Y_{l'}^{m'*}(\theta,\phi)Y_1^i(\theta,\phi)Y_l^m(\theta,\phi)
+\end{align}
+Now we recall the result at the bottom of page $231$ in Sakurai, which simplifies integrals involving three spherical harmonics. Our result above becomes
+\begin{align}
+        \braket{n'j'm'|A_i|njm}&=\left[\sqrt{\frac{4\pi}{3}}\int r^3 dr R_{n',l'}R_{nl}\right]\sqrt{\frac{(3)(2l+1)}{4\pi (2l'+1)}}\braket{1l;00|l1;l'0|}\braket{1l;im|1l;l'm'}\\&=F(n,n',l,l
+        ')\braket{1l;im|1l;l'm'}
+\end{align}
+This mirrors our answer in part $(a)$.
+\end{enumerate}
+
+    \item[] \textbf{S: 3.32} 
+    \begin{enumerate}[(a)]
+\item It is not possible for $xy$, $xz$ and $x^2-y^2$ to be components of a rank 2 spherical tensor because
+\begin{align}
+        [J_z,xy]&=[J_z,x]y+x[J_z,y]\\&=-i\hbar \left(\epsilon_{132}y^2+\epsilon_{231}x^2\right)\\&=\hbar\left(y^2-x^2\right)\neq \hbar q xy
+\end{align}
+
+However, we can express $xy$, $xz$ and $x^2-y^2$ as sums of the different components of a rank-2 spherical tensor. Let 
+\begin{equation}
+    U_{\pm 1}=\mp\frac{x\pm iy}{\sqrt{2}},U_0=z
+\end{equation}
+We construct the rank-2 spherical tensor $T^{(2)}$ by combining $U^{(1)}$ with itself, getting the following components for $T$:
+\begin{equation}
+    T_{\pm 2}=U_{\pm 1}U_{\pm 1}=\frac{1}{2}\left(x\pm iy\right)^2=\frac{1}{2}\left(x^2-y^2\pm 2ixy\right)
+\end{equation}
+\begin{equation}
+    T_{\pm 1}=\sqrt{2}U_{\pm 1}U_0=\mp \left(x\pm iy\right)z=\mp xz-iyz
+\end{equation}
+and 
+\begin{equation}
+    T_0=\frac{1}{\sqrt{6}}\left(2U_{+1}U_{-1}+2U_0^2\right)=\frac{1}{\sqrt{6}}\left(2z^2-x^2-y^2\right)
+\end{equation}
+Thus, we can see that
+\begin{equation}
+    xy=\frac{T_{+2}-T_{-2}}{2i}
+\end{equation}
+\begin{equation}
+xz=\frac{T_{-1}-T_{+1}}{2}
+\end{equation}
+and 
+\begin{equation}
+x^2-y^2=T_{+2}+T_{-2}
+\end{equation}
+\item 
+\begin{align}
+        Q&\equiv e\braket{\alpha,j,m=j|(3z^2-r^2)|\alpha,j,m=j}\\&=e\braket{\alpha,j,m=j|(2z^2-x^2-y^2)|\alpha,j,m=j}\\&=e\sqrt{6}\braket{\alpha,j,m=j|T_0|\alpha,j,m=j}\\&=e\sqrt{6}\braket{j,2;j,0|j,2;j,j}\frac{\braket{\alpha,j||T||\alpha,j}}{\sqrt{2j+1}}
+\end{align}
+So, 
+\begin{equation}
+        \frac{\braket{\alpha,j||T||\alpha,j}}{\sqrt{2j+1}}=\frac{Q}{e\sqrt{6}\braket{j,2;j,0|j,2;j,j}}
+\end{equation}
+Finally, letting $F$ stand for the matrix elements we want, we have
+\begin{align}
+        F&=e\braket{\alpha,j,m'|(x^2-y^2)|\alpha,j,m=j}\\&=e\braket{\alpha,j,m'|T_{_2}+T_{-2}|\alpha,j,m=j}\\&=e\braket{\alpha,j,m'|T_{_2}|\alpha,j,m=j}+e\braket{\alpha,j,m'|T_{-2}|\alpha,j,m=j}\\&=e\braket{j,2;j,2|j,2;j,m'}\frac{\braket{\alpha',j||T||\alpha,j}}{\sqrt{2j+1}}+e\braket{j,2;j,-2|j,2;j,m'}\frac{\braket{\alpha',j||T||\alpha,j}}{\sqrt{2j+1}}\\&=\frac{Q}{\sqrt{6}\braket{j,2;j,0|j,2;j,j}}\left(\braket{j,2;j,2|j,2;j,m'}+\braket{j,2;j,-2|j,2;j,m'}\right)
+\end{align}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item[] \textbf{S: 5.15}
+
+The perturbation in this problem is $V = -\vec{\mu}\cdot \vec{E}$. Since $\vec{\mu}$ is proportional to the Pauli matrices, it transforms in the spin-$1/2$ representation, while $E$ transforms in the spin-1 representation. Beyond that, I'm lost and will have to ask for more direction in class.
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \item[] \textbf{S: 5.20}
+    
+    Let $f(x)=\braket{x|\tilde{\alpha}}=e^{-\beta|x|}$. 
+    
+    First, the normalization:
+    \begin{align}
+            \int_{-\infty}^\infty f(x)^2dx&=2\int_0^\infty e^{-2\beta x}dx\\&=2\left(-\frac{1}{2\beta}\right)\left(0-1\right)\\&=\frac{1}{\beta}
+    \end{align}
+    Second, the expectation value of the Hamiltonian in $\ket{\tilde{\alpha}}$:
+    \begin{align}
+            \braket{H}_{\alpha}&=\braket{\tilde{\alpha}|\frac{p^2}{2m}+\frac{m\omega^2x^2}{2}|\tilde{\alpha}}\\&=\int_{-\infty}^\infty f^*(x)\left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}+\frac{m\omega^2}{2}x^2\right)f(x)dx\\&=\int_0^\infty dx\text{ }e^{-\beta x}\left(-\frac{\hbar^2}{2m}\beta^2+\frac{m\omega^2 x^2}{2}\right)e^{-\beta x}\\&+\int_{-\infty}^0 dx\text{ }e^{\beta x}\left(-\frac{\hbar^2}{2m}\beta^2+\frac{m\omega^2x^2}{2}\right)e^{\beta x}\\&=2\int_0^\infty \left(-\frac{\hbar^2}{2m}\beta^2+\frac{m\omega^2x^2}{2}\right)e^{-2\beta x}dx\\&=2\left[-\frac{\hbar^2}{2m}\beta^2\left(\frac{1}{2\beta}\right)+\frac{m\omega^2}{2}\int_0^\infty e^{-2\beta x}x^2dx\right]\\&=2\left[-\frac{\hbar^2}{4m}\beta+\frac{m\omega^2}{2}\frac{1}{4\beta^3}\right]
+    \end{align}
+    Actually, we are missing a term. The second derivative of our trial function is positive everywhere, except at the origin, where we can think of it as being sharply negative. To be more quantitative, 
+    consider the limit
+    \begin{align}
+            K&=\lim_{\epsilon\to 0}\int_{-\epsilon}^\epsilon \frac{d^2}{dx^2}\left(e^{-\beta x}\right)dx\\&=\lim_{\epsilon\to0}\frac{d}{dx}\left(e^{-\beta x}\right)\biggr\rvert_{-\epsilon}^{\epsilon}\\&=-2\beta
+    \end{align}
+    Thus, really
+    \begin{equation}
+            \braket{H}_{\alpha}=\frac{\hbar^2}{2m}2\beta-\frac{\hbar^2}{2m}\beta+\frac{m\omega^2}{2}\frac{1}{4\beta^3}=\frac{\hbar^2}{2m}\beta+\frac{m\omega^2}{4\beta^3}
+    \end{equation}
+    
+    Therefore
+    \begin{equation}
+            A(\beta)=\frac{\braket{H}_{\alpha}}{|f|^2}=\frac{\hbar^2}{2m}\beta^2+\frac{m\omega^2}{4}\frac{1}{\beta^2}
+    \end{equation}
+    
+    Finally, we minimize $A$ with respect to $\beta$:
+    \begin{equation}
+            \frac{\partial A}{\partial \beta}=-\frac{m\omega^2}{2}\frac{1}{\beta^3}+\frac{\hbar^2}{m}\beta=0\implies \beta=\left(\frac{m^2\omega^2}{2\hbar^2}\right)^{\frac{1}{4}}
+    \end{equation}
+    Finally, our estimate for the ground state energy of the quantum harmonic oscillator is 
+    \begin{equation}
+            A(\beta)=\frac{\hbar^2}{2m}\frac{m\omega}{\sqrt{2}\hbar}+\frac{m\omega^2}{4}\frac{\sqrt{2}\hbar}{m\omega}=\boxed{\frac{\hbar \omega}{\sqrt{2}}}
+    \end{equation}
+    We know that the correct answer is $E_0=\frac{\hbar\omega}{2}$, so the variational method gets the right answer to within a factor of $\sqrt{2}$. 
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \item[] \textbf{S: 5.21}
+    Consider the differential equation $\frac{d^2\psi}{dx^2}-|x|\psi=-\lambda\psi$, $\psi\rightarrow0$ for $|x|\rightarrow\infty$, as well as the trial function:
+    \begin{equation}
+            \psi_\alpha= \begin{cases} 
+                     c(\alpha-|x|) & \text{for} |x|<\alpha\\
+                     0             & \text{for} |x|>\alpha
+                    \end{cases}
+    \end{equation}
+    
+    with the parameter $\alpha$. Thus, for a given $\alpha$:
+    
+    \begin{align}
+            \braket{\psi_\alpha|\psi_\alpha}&=\int_{-\infty}^\infty|\psi_\alpha|^2dx\\
+            &=\int_{-\alpha}^\alpha c^2(\alpha-|x|)^2dx\\
+            &=2c^2\int_0^\alpha(\alpha-x)^2dx\\
+            &=\frac{2}{3}c^2\alpha^3
+    \end{align}
+    \begin{align}
+            \braket{\psi_\alpha|\frac{d^2}{dx^2}|\psi_\alpha}&=\int_{-\alpha}^\alpha c(\alpha-|x|)\frac{d^2}{dx^2}c(\alpha-|x|)dx\\
+            &=c^2\int_{-\alpha}^\alpha(\alpha-|x|)\frac{d^2}{dx^2}(\alpha-|x|)dx\\
+            &=-c^2\int_{-\alpha}^\alpha(\alpha-|x|)\frac{d}{dx}(2H(x)-1)dx\\
+            &=-2c^2\int_{-\alpha}^\alpha(\alpha-|x|)\delta(x)dx\\
+            &=-2c^2\alpha
+    \end{align}
+    \begin{align}
+            \braket{\psi_\alpha||x||\psi_\alpha}&=\int_{-\alpha}^\alpha c(\alpha-|x|)|x|c(\alpha-|x|)dx\\
+            &=c^2\int_{-\alpha}^\alpha(\alpha-|x|)^2|x|dx\\
+            &=2c^2\int_{0}^\alpha(\alpha-x)^2xdx\\
+            &=c^2\frac{\alpha^4}{6}
+    \end{align}
+    Thus, if we let $H=\frac{d^2}{dx^2}-|x|$, the lowest eigenvalue $-\lambda$ of $H$ satisfies the following inequality:
+    \begin{equation}
+            \lambda\geq-\frac{\braket{\psi_\alpha|H|\psi_\alpha}}{\braket{\psi_\alpha|\psi_\alpha}}=-\frac{\alpha^3-12}{4\alpha^2}
+    \end{equation}
+    We now try to minimize $\frac{\braket{\psi_\alpha|H|\psi_\alpha}}{\braket{\psi_\alpha|\psi_\alpha}}$:
+    \begin{align}
+            0&=\frac{d}{d\alpha}\frac{\braket{\psi_\alpha|H|\psi_\alpha}}{\braket{\psi_\alpha|\psi_\alpha}}\biggr\rvert_{\alpha=\alpha_0}\\
+            &=\frac{1}{4}+\frac{6}{\alpha_0^3}
+    \end{align}
+    such that $\alpha_0=-2\cdot3^{1/3}$, and such that $\lambda\simeq-\frac{\alpha_0^3-12}{4\alpha_0^2}\simeq1.082$
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    
+    
+\end{enumerate}
+
+\end{document}
